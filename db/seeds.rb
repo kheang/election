@@ -7,6 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Candidate.destroy_all
+Voter.destroy_all
 
 Candidate.create(name: "Kay Hagan", party: "Democratic")
 Candidate.create(name: "Thom Thills", party: "Republican")
+
+Voter.create(name: "Jane", party: "Unaffiliated")
+Voter.create(name: "John", party: "Unaffiliated")

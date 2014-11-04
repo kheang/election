@@ -7,7 +7,7 @@ class V1::CandidatesController < ApplicationController
   end
 
   def show
-		render json: @candidate, only: [:name,:party]
+		render json: @candidate
   end
 
 	private
