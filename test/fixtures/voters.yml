@@ -4,8 +4,10 @@ one:
   id: 1
   name: MyString
   party: MyString
+  token: <%= SecureRandom.uuid %>
 
 two:
   id: 2
   name: MyString
   party: MyString
+  token: <%= SecureRandom.uuid %>

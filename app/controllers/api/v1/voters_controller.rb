@@ -4,11 +4,6 @@ class API::V1::VotersController < ApplicationController
 	before_filter :load_voter, only: [:show, :update]
 	before_filter :restrict_access_to_voter, only: [:show, :update]
 
-  def index
-		@voters = Voter.all
-		render json: @voters
-  end
-
   def show
 		render json: @voter
   end

@@ -8,7 +8,6 @@ class API::V1::VotesController < ApplicationController
 		render json: @votes
 	end
 
-
 	def create
 		@vote = Vote.new(vote_params)
 
