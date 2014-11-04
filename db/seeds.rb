@@ -16,6 +16,3 @@ voter1 = Voter.create(name: "Jane", party: "Unaffiliated")
 voter2 = Voter.create(name: "John", party: "Unaffiliated")
 
 seat1 = Seat.create(office_name: "Senate", district: "NC")
-
-vote1 = Vote.create(voter: voter1, candidate: candidate1, seat: seat1)
-vote2 = Vote.create(voter: voter2, candidate: candidate2, seat: seat1)
