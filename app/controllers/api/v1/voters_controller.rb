@@ -1,5 +1,8 @@
 class API::V1::VotersController < ApplicationController
+	include ActionController::HttpAuthentication::Token::ControllerMethods
+
 	before_filter :load_voter, only: [:show, :update]
+	before_filter :restrict_access_to_voter, only: [:show, :update]
 
   def index
 		@voters = Voter.all
@@ -32,6 +35,12 @@ class API::V1::VotersController < ApplicationController
 
 	def load_voter
 		@voter = Voter.find(params[:id])
+	end
+
+	def restrict_access_to_voter
+		unless @voter.token == params[:token]
+			render nothing: true, status: :unauthorized
+		end
 	end
 
 	def voter_params
