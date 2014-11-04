@@ -1,4 +1,4 @@
-class V1::VotesController < ApplicationController
+class API::V1::VotesController < ApplicationController
 	before_filter :load_vote, only: [:show]
 
 	def index

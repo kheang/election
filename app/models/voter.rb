@@ -3,5 +3,6 @@ class Voter < ActiveRecord::Base
 		hash = {id: id,
 		        name: name,
 		        party: party}
+		{voter: hash}
 	end
 end

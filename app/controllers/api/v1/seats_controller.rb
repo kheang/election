@@ -1,4 +1,4 @@
-class V1::SeatsController < ApplicationController
+class API::V1::SeatsController < ApplicationController
 	before_filter :load_seat, only: [:show]
 
 	def index

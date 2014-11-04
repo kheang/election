@@ -1,4 +1,4 @@
-class V1::CandidatesController < ApplicationController
+class API::V1::CandidatesController < ApplicationController
 	before_filter :load_candidate, only: [:show]
 
   def index
