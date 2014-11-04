@@ -11,11 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141104191115) do
+ActiveRecord::Schema.define(version: 20141104192159) do
 
   create_table "candidates", force: true do |t|
     t.string   "name"
     t.string   "party"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "seats", force: true do |t|
+    t.string   "office_name"
+    t.string   "district"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -26,5 +33,17 @@ ActiveRecord::Schema.define(version: 20141104191115) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "votes", force: true do |t|
+    t.integer  "voter_id"
+    t.integer  "candidate_id"
+    t.integer  "seat_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["candidate_id"], name: "index_votes_on_candidate_id"
+  add_index "votes", ["seat_id"], name: "index_votes_on_seat_id"
+  add_index "votes", ["voter_id"], name: "index_votes_on_voter_id"
 
 end

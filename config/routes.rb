@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 	namespace :v1 do
-		resources :candidates
-		resources :voters
+		resources :candidates, only: [:index,:show]
+		resources :voters, only: [:index,:show]
+		resources :votes, only: [:index,:show]
+		resources :seats, only: [:index,:show]
 	end
 
   # The priority is based upon order of creation: first created -> highest priority.
