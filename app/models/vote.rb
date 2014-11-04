@@ -3,6 +3,10 @@ class Vote < ActiveRecord::Base
   belongs_to :candidate
   belongs_to :seat
 
+  validates :voter, presence: true, uniqueness: true
+  validates :candidate, presence: true
+  validates :seat, presence: true
+
   def as_json(options)
 	  hash = {vote_id: id,
 		        voter_id: voter.id,
