@@ -1,5 +1,5 @@
 class API::V1::VotersController < ApplicationController
-	before_filter :load_voter, only: [:show]
+	before_filter :load_voter, only: [:show, :update]
 
   def index
 		@voters = Voter.all
@@ -14,7 +14,15 @@ class API::V1::VotersController < ApplicationController
 		@voter = Voter.new(voter_params)
 
 		if @voter.save
-			render json: @voter
+			render json: @voter, status: :created
+		else
+			render json: {errors: @voter.errors}, status: :bad_request
+		end
+	end
+
+	def update
+		if @voter.update(voter_params)
+			render json: @voter, status: :ok
 		else
 			render json: {errors: @voter.errors}, status: :bad_request
 		end

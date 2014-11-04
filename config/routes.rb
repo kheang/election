@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 	namespace :api do
 		namespace :v1 do
-			resources :candidates
-			resources :voters
-			resources :votes
-			resources :seats
+			resources :candidates, only: [:index, :show]
+			resources :voters, only: [:index, :show, :create, :update]
+			resources :votes, only: [:index, :show]
+			resources :seats, only: [:index, :show]
 		end
 	end
 
