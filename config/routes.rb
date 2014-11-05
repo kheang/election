@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 		namespace :v1 do
 			resources :candidates, only: [:index, :show]
 			resources :voters, only: [:show, :create, :update]
-			resources :votes, only: [:index, :create]
+			resources :votes, only: [:index, :create, :show]
 			resources :seats, only: [:index, :show]
 		end
 	end

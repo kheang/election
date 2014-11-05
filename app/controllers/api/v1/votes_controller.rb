@@ -12,11 +12,11 @@ class API::V1::VotesController < ApplicationController
 		@vote = Vote.new(vote_params)
 
 		if @vote.save
-			render json: @vote, status: :created
+			render json: @vote, serializer: VoteSerializer, status: :created
 		else
 			render nothing: true, status: :bad_request
 		end
-	end
+  end
 
 	private
 

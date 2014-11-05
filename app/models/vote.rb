@@ -3,7 +3,8 @@ class Vote < ActiveRecord::Base
   belongs_to :candidate
   belongs_to :seat
 
-  validates :voter, presence: true, uniqueness: true
+  validates :voter, presence: true
+  validates_uniqueness_of :voter, scope: :seat
   validates :candidate, presence: true
   validates :seat, presence: true
 
