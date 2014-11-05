@@ -9,7 +9,7 @@
 Candidate.destroy_all
 Voter.destroy_all
 
-seat1 = Seat.create(office_name: "House", district: "NC")
+seat1 = Seat.create(office_name: "House", district: "State")
 
 candidate1 = Candidate.create(name: "Candidate One", party: "Party One", seat: seat1)
 candidate2 = Candidate.create(name: "Candidate Two", party: "Party Two", seat: seat1)
