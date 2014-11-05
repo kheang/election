@@ -8,6 +8,9 @@ class Voter < ActiveRecord::Base
 		hash = {id: id,
 		        name: name,
 		        party: party}
+    if options[:include_token]
+      hash.merge!(token: token)
+    end
 		{voter: hash}
 	end
 

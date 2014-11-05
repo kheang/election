@@ -12,7 +12,7 @@ class API::V1::VotersController < ApplicationController
 		@voter = Voter.new(voter_params)
 
 		if @voter.save
-			render json: @voter, status: :created
+			render json: @voter.as_json(include_token: true), status: :created
 		else
 			render json: {errors: @voter.errors}, status: :bad_request
 		end
