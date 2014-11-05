@@ -9,9 +9,10 @@ class Vote < ActiveRecord::Base
   validates :seat, presence: true
 
   def as_json(options)
-	  hash = {vote_id: id,
+	 hash = {vote_id: id,
 		        voter_id: voter.id,
 	          seat_id: seat.id,
 	          candidate_id: candidate.id}
+   {vote: hash}
   end
 end

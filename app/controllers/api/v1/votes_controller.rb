@@ -1,18 +1,19 @@
 class API::V1::VotesController < ApplicationController
 	include ActionController::HttpAuthentication::Token::ControllerMethods
+  include ActionController::MimeResponds
 
 	before_filter :restrict_access_to_vote, only: [:create]
 
 	def index
-		@votes = Vote.all
-		render json: @votes
-	end
+		@candidates = Candidate.all
+    render json: @candidates, root: "candidates"
+  end
 
 	def create
 		@vote = Vote.new(vote_params)
 
 		if @vote.save
-			render json: @vote, serializer: VoteSerializer, status: :created
+			render json: @vote, status: :created
 		else
 			render nothing: true, status: :bad_request
 		end

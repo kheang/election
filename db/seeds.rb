@@ -9,10 +9,15 @@
 Candidate.destroy_all
 Voter.destroy_all
 
-candidate1 = Candidate.create(name: "Kay Hagan", party: "Democratic")
-candidate2 = Candidate.create(name: "Thom Thills", party: "Republican")
+seat1 = Seat.create(office_name: "House", district: "NC")
 
-voter1 = Voter.create(name: "Jane", party: "Unaffiliated")
-voter2 = Voter.create(name: "John", party: "Unaffiliated")
+candidate1 = Candidate.create(name: "Candidate One", party: "Party One", seat: seat1)
+candidate2 = Candidate.create(name: "Candidate Two", party: "Party Two", seat: seat1)
 
-seat1 = Seat.create(office_name: "Senate", district: "NC")
+voter1 = Voter.create(name: "Voter One", party: "Party One")
+voter2 = Voter.create(name: "Voter Two", party: "Party Two")
+voter3 = Voter.create(name: "Voter Three", party: "Unaffiliated")
+
+vote1 = Vote.create(voter: voter1, seat: seat1, candidate: candidate1)
+vote2 = Vote.create(voter: voter2, seat: seat1, candidate: candidate2)
+vote3 = Vote.create(voter: voter3, seat: seat1, candidate: candidate2)

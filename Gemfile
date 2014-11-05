@@ -10,7 +10,7 @@ gem 'spring', :group => :development
 
 gem 'sqlite3'
 
-gem 'active_model_serializers'
+gem 'active_model_serializers', '~> 0.8.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
@@ -26,3 +26,6 @@ gem 'active_model_serializers'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+gem 'better_errors'
+gem 'binding_of_caller'

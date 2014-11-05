@@ -11,14 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141104221242) do
+ActiveRecord::Schema.define(version: 20141105044832) do
 
   create_table "candidates", force: true do |t|
     t.string   "name"
     t.string   "party"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "seat_id"
   end
+
+  add_index "candidates", ["seat_id"], name: "index_candidates_on_seat_id"
 
   create_table "seats", force: true do |t|
     t.string   "office_name"
