@@ -5,8 +5,7 @@ class API::V1::VotesController < ApplicationController
 	before_filter :restrict_access_to_vote, only: [:create]
 
 	def index
-		@candidates = Candidate.all
-    render json: @candidates, root: "candidates"
+    render json: hash_vote_results, root: "candidates"
   end
 
 	def create
@@ -30,5 +29,19 @@ class API::V1::VotesController < ApplicationController
 
 	def vote_params
 		params.require(:vote).permit(:voter_id,:seat_id,:candidate_id)
+	end
+
+	def hash_vote_results
+		results = []
+		@candidates = Candidate.all
+		@candidates.each do |candidate|
+			hash = {}
+			hash[:id] = candidate.id
+			hash[:name] = candidate.name
+			hash[:party] = candidate.party
+			hash[:vote_count] = candidate.votes.count
+			results << hash
+		end
+		results
 	end
 end
